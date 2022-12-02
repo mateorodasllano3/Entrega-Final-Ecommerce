@@ -22,7 +22,7 @@ const Home = () => {
             .then(res => setCategoryList(res.data.data.categories))
     }, [])
 
-    console.log(categoryList)
+    //console.log(categoryList)
 
 
     useEffect(() => {
@@ -73,5 +73,8 @@ const Home = () => {
         </div>
     );
 };
+
+// john@gmail.com
+// john1234
 
 export default Home;

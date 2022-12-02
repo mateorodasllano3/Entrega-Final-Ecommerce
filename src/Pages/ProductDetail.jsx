@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getProductsThunk } from '../store/slices/products.slice';
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { createSerializableStateInvariantMiddleware } from '@reduxjs/toolkit';
+import { createCartThunk } from '../store/slices/cart.slice';
 const Product = () => {
     
     const {id} = useParams()
@@ -16,8 +18,18 @@ const Product = () => {
     const productsList = useSelector(state => state?.products.data?.products)
     const product = productsList?.find(productItem => productItem.id === Number (id))
     const categoryproducts = productsList?.filter(productItem => productItem.category.id === product.category.id)
-    console.log(product)
+    //console.log(product)
     //console.log(categoryproducts)
+
+    const [rate, setRate] = useState("")
+    const addToCart = () =>{
+        const productscart = {
+            id: product.id,
+            quantity:rate
+        }
+        dispatch(createCartThunk(productscart));
+        //console.log(productscart)
+    }
     return ( 
         <>
         <div className='Container-ProductDetail'>
@@ -32,7 +44,8 @@ const Product = () => {
                 <h4>{product?.title}</h4>
                 <p>{product?.description} </p>
                 <p> <span>Price</span>  <b> ${product?.price} </b> </p>
-                <Button>Add to cart <box-icon name='cart-alt' type='solid' color='#ffffff' ></box-icon></Button>
+                <input type="number" value={rate} onChange={(e)=>setRate(e.target.value)} min="0" max="10"/>
+                <Button onClick={addToCart}>Add to cart <box-icon name='cart-alt' type='solid' color='#ffffff' ></box-icon></Button>
             </div>
             </div>
             <div className='ProductDetail-Similar'>

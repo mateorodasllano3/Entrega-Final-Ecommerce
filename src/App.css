@@ -40,13 +40,14 @@ img{
   height: 100%; */
   max-width: 90%;
   max-height: 80%;
+
   
 }
 
 .Nav-Link{
   border-left: 1px solid black;
   border-right: 1px solid black;
-  width: 120px;
+  width: 100px;
   text-align: center;
   
 }
@@ -75,7 +76,6 @@ img{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
   padding: 4rem;
   text-align: center;
 }
@@ -83,9 +83,11 @@ img{
 
 @media screen and (min-width:991px){
   .Container-NavBar{
-    gap: 40rem;
+    gap: 30rem;
+    width: 1000px;
   }
   
+ 
   .Nav-Link{
     border-left: 0px solid black;
     border-right: 1px solid black;
@@ -93,6 +95,13 @@ img{
 
   .Login{
     border-left: 1px solid black;
+  }
+}
+
+@media screen and (min-width:1200px){
+  .Container-NavBar{
+    /* gap: 40rem; */
+    
   }
 }
 
@@ -198,4 +207,59 @@ img{
 .ProductDetail-Box > img {
   max-width: 120px;
   max-height: 120px;
+}
+
+.Purchases-Group{
+  border: 1px solid lightgray;
+  list-style: none;
+  margin: 2rem;
+  border-radius: 10px;
+}
+
+.Login-Container{
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4rem;
+  border: 1px solid lightgray;
+  padding: 4rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  
+}
+
+.Purchases-General{
+  color: black;
+  list-style: none;
+  padding: 1rem;
+ 
+}
+
+h4{
+  text-decoration: none;
+  color: black;
+}
+
+.Container-Cart{
+  display: flex;
+  flex-direction: column;
+}
+
+.Product-Cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.Button-Cart{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 3rem;
+  gap: 1rem;
+  left: 9rem;
+  text-align: center;
+  
 }
